@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["file:///Applications/Projects/ABCD.com/ticket-generator/src/app/components/form.module.css"],"sourcesContent":["/* form.module.css */\n\n.form {\n    max-width: 400px;\n    padding: 20px;\n    border: 1px solid #ccc;\n    border-radius: 5px;\n  }\n  \n  .label {\n    display: block;\n    margin-bottom: 5px;\n  }\n  \n  .input,\n  .radio,\n  .select,\n  .button {\n    width: 100%;\n    padding: 8px;\n    margin-bottom: 10px;\n    border: 1px solid #ccc;\n    border-radius: 4px;\n    box-sizing: border-box;\n  }\n  \n  .input[type=\"number\"] {\n    width: 100%;\n  }\n  \n  .radio {\n    margin-right: 10px;\n  }\n  .button {\n    background-color: #1482db;\n    color: #fff;\n    cursor: pointer;\n  }\n  \n  .button:hover {\n    background-color: #4194b5;\n  }"],"names":[],"mappings":"AAEA;;;;;;;AAOE;;;;;AAKA;;;;;;;;;AAYA;;;;AAIA;;;;AAGA;;;;;;AAMA"}},
+    {"offset": {"line": 39, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}}]
+}

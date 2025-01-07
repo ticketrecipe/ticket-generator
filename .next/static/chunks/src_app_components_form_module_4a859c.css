@@ -1,0 +1,42 @@
+/* [project]/src/app/components/form.module.css [app-client] (css) */
+.form-module__e__Dca__form {
+  max-width: 400px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-module__e__Dca__label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-module__e__Dca__input, .form-module__e__Dca__radio, .form-module__e__Dca__select, .form-module__e__Dca__button {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.form-module__e__Dca__input[type="number"] {
+  width: 100%;
+}
+
+.form-module__e__Dca__radio {
+  margin-right: 10px;
+}
+
+.form-module__e__Dca__button {
+  background-color: #1482db;
+  color: #fff;
+  cursor: pointer;
+}
+
+.form-module__e__Dca__button:hover {
+  background-color: #4194b5;
+}
+
+
+/*# sourceMappingURL=src_app_components_form_module_4a859c.css.map*/

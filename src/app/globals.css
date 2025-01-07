@@ -1,0 +1,183 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+h5 {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+h3 {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+h4 {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.ticketrecipe-body {
+  padding: 100px 100px;
+}
+
+.header{
+  position: relative;
+  width: 100%;
+  display: inline-block;
+}
+.header-left{
+  float: left;
+  position: relative;
+}
+.header-right{
+  float: right;
+  position: relative;
+}
+
+.body-left {
+  float: left;
+  width: 70%;
+  padding: 10px;
+}
+
+.body-left > .body-thumbsec > img{
+    float: left;
+    margin-right: 15px;
+}
+
+.body-right {
+  float: left;
+  width: 30%;
+  padding: 10px;
+  background: rgba(255, 201, 60, 0.10);
+}
+
+.body-bottom {
+  width: 100%;
+}
+
+#resp-table {
+  width: 100%;
+  display: table;
+}
+#resp-table-body{
+  display: table-row-group;
+}
+.resp-table-row{
+  display: table-row;
+  font-weight: bold;
+}
+.resp-table-row.st{
+  font-weight: 400;
+  color: #75777C;
+}
+.table-body-cell{
+  width: 120px;
+  display: inline-block;
+  /* border: 1px solid #dddddd; */
+  padding: 0px 5px 5px 8px;
+  line-height: 1.42857143;
+  vertical-align: top;
+}
+.cal{
+  display: flex;
+  margin-bottom: 5px;
+}
+.cal > img {
+  float: left;
+  margin-right: 6px;
+}
+.loc{
+  display: flex;
+  margin-bottom: 5px;
+}
+.loc > img {
+  float: left;
+  margin-right: 6px;
+}
+
+.steps{
+  list-style: none;
+  margin-bottom: 25px;
+}
+.steps li{
+  font-size: 14px;
+}
+
+.barcode{
+  text-align: center;
+  width: 100%;
+  margin: auto;
+}
+
+.barcode-guide{
+  width: 200px;
+  margin: auto;
+}
+
+.barcode > img{
+  text-align: center;
+  margin: auto;
+  padding: 30px;
+}
+
+span.body-thumbsec-right ul {
+  list-style: none;
+}
+span.body-thumbsec-right ul > li > img {
+  float: left;
+}
+
+.body-thumbsec{
+  position: relative;
+  display: inline-flex;
+  margin-bottom: 30px;
+}
+
+button.printbtn {
+  background: #12b5e3;
+  color: white;
+  padding: 17px 50px;
+}
+button.resetbtn {
+  background: #ea6e15;
+  color: white;
+  padding: 17px 50px;
+}
+
+@media print
+    {
+      .ticketrecipe-body {
+        padding: 30px 30px;
+      }
+      .body-extension{
+        margin-top: 500px;
+        padding-top: 50px;
+      }
+}
+
+
