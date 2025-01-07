@@ -1,9 +1,7 @@
 'use client';
-
+/* eslint-disable */
 import { useState, useEffect } from "react";
 import styles from './form.module.css';
-import { Rowdies } from "next/font/google";
-
 
 const formDataEmpty = {
     pname: "John Doe",

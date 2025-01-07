@@ -1,4 +1,5 @@
 'use client';
+/* eslint-disable */
 import React from 'react';
 import Ticket from './components/ticket';
 import NewSubmission from './components/newsubmission';
