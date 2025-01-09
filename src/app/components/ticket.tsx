@@ -29,7 +29,7 @@ export default function Ticket(props: any) {
      * API call to create QR COde
      */
     const generateQRCode = async () => {
-            const response = await fetch("http://ticketrecipe-demo.us-west-2.elasticbeanstalk.com:8080/v1/certify/tickets",
+            const response = await fetch("https://api.ticketrecipe.com/v1/certify/tickets",
                 {
                     method: 'POST',
                     headers: {
