@@ -82,29 +82,21 @@ h4 {
 .body-bottom {
   width: 100%;
 }
-
-#resp-table {
-  width: 100%;
-  display: table;
+.tbl-label{
+  color: var(--grey, #75777C);
+  font-family: "Avenir Next";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 140%;
 }
-#resp-table-body{
-  display: table-row-group;
-}
-.resp-table-row{
-  display: table-row;
-  font-weight: bold;
-}
-.resp-table-row.st{
-  font-weight: 400;
-  color: #75777C;
-}
-.table-body-cell{
-  width: 120px;
-  display: inline-block;
-  /* border: 1px solid #dddddd; */
-  padding: 0px 5px 5px 8px;
-  line-height: 1.42857143;
-  vertical-align: top;
+.tbl-val{
+    color: var(--Black, #1E1E1E);
+    font-family: "Avenir Next";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 140%;
 }
 .cal{
   display: flex;

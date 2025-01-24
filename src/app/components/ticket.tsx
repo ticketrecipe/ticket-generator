@@ -2,17 +2,18 @@
 /* eslint-disable */
 import { useRef, useEffect, useState } from "react";
 import { useReactToPrint } from "react-to-print";
+import Grid from '@mui/material/Grid2';
 
 export default function Ticket(props: any) {
   const contentRef = useRef<HTMLDivElement>(null);
   const reactToPrintFn = useReactToPrint({ contentRef });
   const [newData, setNewData] = useState({
-    pname: "",
+    patronName: "",
     eventName:"",
     type: "",
     price: "",
     cat: "",
-    sec: "",
+    section: "",
     row: "",
     seats:"",
     entrance:"",
@@ -36,42 +37,42 @@ export default function Ticket(props: any) {
                         'Accept': 'application/json',
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({
-                        "requestId": "64670583-ceb1-4b7f-bc12-0ce6e8be967b",
-                        "purchaser": {
-                            "name": props.data.patronName,
-                            "emailAddress": "test@gmail.com"
-                        },
-                        "eventId": props.data.eventID,
-                        "eventName": props.data.eventName,
-                        "startDateTime": "2025-09-18T20:00:00",
-                        "venue": {
-                            "name": props.data.eventVenue,
-                            "address": props.data.eventAddress
-                        },
-                        "tickets": [
-                            {
-                                "price": {
-                                    "amount": parseInt(props.data.price),
-                                    "currency": props.data.currency
-                                },
-                                "barcodeId": props.data.bid,
-                                "entrance": props.data.entrance,
-                                "category": props.data.cat,
-                                "row": props.data.row,
-                                "seat": props.data.seats,
-                                "section": props.data.section,
-                                "type": props.data.type
-
-                            }
-                        ]
-                    })
+                    body: JSON.stringify(
+                        {
+                            "requestId": "80670583-ceb1-4b7f-bc12-0ce6e8be967b",
+                            "purchaser": {
+                                "name": props.data.patronName,
+                                "emailAddress": "test@gmail.com"
+                            },
+                            "eventId": props.data.eventID,
+                            "eventName": props.data.eventName,
+                            "eventDateTime": props.data.eventDateTime,
+                            "venue": {
+                                "name": props.data.eventVenue,
+                                "address": props.data.eventAddress
+                            },
+                            "tickets": [
+                                {
+                                    "price": {
+                                        "amount": parseInt(props.data.price),
+                                        "currency": props.data.currency
+                                    },
+                                    "barcodeId": props.data.bid,
+                                    "entrance": props.data.entrance,
+                                    "category": props.data.cat,
+                                    "row": props.data.row,
+                                    "seat": props.data.seats,
+                                    "section": props.data.section,
+                                    "type": props.data.type
+                                }
+                            ]
+                        })
                 }
             );
-            const data = await response.json();
-            if(data && data.qrCodes && data.qrCodes.length > 0){
-                if(data.qrCodes[0].qrCodeImage){
-                    setBarcode(data.qrCodes[0].qrCodeImage);
+            const d = await response.json();
+            if(d && d.data && d.data.length > 0){
+                if(d.data[0].getCertifyQrCode){
+                    setBarcode(d.data[0].getCertifyQrCode);
                 }
             }
 
@@ -106,82 +107,58 @@ export default function Ticket(props: any) {
                             </span>
                             
                     </div>
+                    <Grid container spacing={2}>
+                        <Grid size={4}>
+                            <div className={'tbl-cell'}>
+                                <div className={'tbl-label'}>Type</div>
+                                <div className={'tbl-val'}>{newData.type}</div>
+                            </div>
+                        </Grid>
+                        <Grid size={4}>
+                            <div className={'tbl-cell'}>
+                                <div className={'tbl-label'}>Original Price</div>
+                                <div className={'tbl-val'}>{newData.currency + " " + newData.price}</div>
+                            </div>
+                        </Grid>
+                        <Grid size={4}>
+                            <div className={'tbl-cell'}>
+                                <div className={'tbl-label'}>Category</div>
+                                <div className={'tbl-val'}>{newData.cat}</div>
+                            </div>
+                        </Grid>
+                        <Grid size={4}>
+                            <div className={'tbl-cell'}>
+                                <div className={'tbl-label'}>Section</div>
+                                <div className={'tbl-val'}>{newData.section}</div>
+                            </div>
+                        </Grid>
+                        <Grid size={4}>
+                            <div className={'tbl-cell'}>
+                                <div className={'tbl-label'}>Row</div>
+                                <div className={'tbl-val'}>{newData.row}</div>
+                            </div>
+                        </Grid>
+                        <Grid size={4}>
+                            <div className={'tbl-cell'}>
+                                <div className={'tbl-label'}>Seats</div>
+                                <div className={'tbl-val'}>{newData.seats}</div>
+                            </div>
+                        </Grid>
+                        <Grid size={4}>
+                            <div className={'tbl-cell'}>
+                                <div className={'tbl-label'}>Entrance</div>
+                                <div className={'tbl-val'}>{newData.entrance}</div>
+                            </div>
+                        </Grid>
+                        <Grid size={4}>
+                            <div className={'tbl-cell'}>
+                                <div className={'tbl-label'}>Patron</div>
+                                <div className={'tbl-val'}>{newData.patronName}</div>
+                            </div>
+                        </Grid>
+                        
+                    </Grid>
 
-                    <div id="resp-table">
-                        <div id="resp-table-body">
-                            <div className="resp-table-row st"> 
-                                <div className="table-body-cell">
-                                    Type
-                                </div>
-                                <div className="table-body-cell">
-                                    Original Price
-                                </div>
-                                <div className="table-body-cell">
-                                    Category
-                                </div>
-                            </div>
-                            <div className="resp-table-row"> 
-                                <div className="table-body-cell">
-                                   {newData.type}
-                                </div>
-                                <div className="table-body-cell">
-                                    {newData.currency + " " + newData.price}
-                                </div>
-                                <div className="table-body-cell">
-                                    {newData.cat}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="resp-table">
-                        <div id="resp-table-body">
-                            <div className="resp-table-row st"> 
-                                <div className="table-body-cell">
-                                    Section
-                                </div>
-                                <div className="table-body-cell">
-                                    Row
-                                </div>
-                                <div className="table-body-cell">
-                                    Seats
-                                </div>
-                            </div>
-                            <div className="resp-table-row"> 
-                                <div className="table-body-cell">
-                                    {newData.sec}
-                                </div>
-                                <div className="table-body-cell">
-                                    {newData.row} 
-                                </div>
-                                <div className="table-body-cell">
-                                    {newData.seats}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="resp-table">
-                        <div id="resp-table-body">
-                            <div className="resp-table-row st"> 
-                                <div className="table-body-cell">
-                                    Entrance
-                                </div>
-                                <div className="table-body-cell">
-                                    Patron
-                                </div>
-                            </div>
-                            <div className="resp-table-row"> 
-                                <div className="table-body-cell">
-                                    {newData.entrance}
-                                </div>
-                                <div className="table-body-cell">
-                                    {newData.pname}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
                 </div>
                 <div className={'body-right'}>
                         <div className={'barcode'}><img src={barcode ? barcode : './sample02.png'}/></div>

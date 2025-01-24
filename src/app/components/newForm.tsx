@@ -28,7 +28,7 @@ export default function NewForm(props: any) {
         seats:'',
         price: '',
         currency:'',
-        type:'',
+        type:'RS',
         bid:'',
         bannerImageUrl: '',
         entrance:'TEST'
