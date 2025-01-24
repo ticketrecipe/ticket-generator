@@ -2,6 +2,13 @@
 /* eslint-disable */
 import { useState, useEffect } from "react";
 import styles from './form.module.css';
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
+import AddIcon from '@mui/icons-material/Add';
+import Button from '@mui/material/Button';
+import NewForm from './newForm';
+
+
 
 const formDataEmpty = {
     pname: "John Doe",
@@ -22,19 +29,19 @@ export default function NewSubmission(props: any) {
     const [formData, setFormData] = useState({
         ...formDataEmpty
     });
+    const [events, setEvents] = useState([]);
+    const [newData, setNewData] = useState({});
 
-    const handleChange = (e: any) => {
-        const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value });
+    // const handleChange = (e: any) => {
+    //     const { name, value } = e.target;
+    //     setFormData({ ...formData, [name]: value });        
+    // };
 
-        
-    };
-
-    const handleSubmit = (e: any) => {
-        e.preventDefault();
-        console.log("Form Data:", formData);
-        props.onSubmitCallBack && props.onSubmitCallBack(formData);
-    };
+    // const handleSubmit = (e: any) => {
+    //     e.preventDefault();
+    //     console.log("Form Data:", formData);
+    //     props.onSubmitCallBack && props.onSubmitCallBack(newData);
+    // };
     const resetForm = () => { 
         setFormData({...formDataEmpty})
     }
@@ -46,9 +53,38 @@ export default function NewSubmission(props: any) {
         }
     },[props.isreset]);
 
+    useEffect(()=>{
+        const getAllEvents = async () => {
+            const response = await fetch("https://api.ticketrecipe.com/v1/events");
+            const data = await response.json();
+     
+            setEvents(data);
+        };
+        getAllEvents()
+    },[]);
+
+    const handleUpdateFromForms = (data: any) => {
+        setNewData(data);
+    }
+
+    const pasToPrintPage = () => {
+        props.onSubmitCallBack && props.onSubmitCallBack(newData);
+    }
+
   return (
     <>
-     <form className={styles.form} onSubmit={handleSubmit}>
+    <Container fixed>
+        <Box><h1 className={styles.title}>Ticket Generator</h1></Box>
+    </Container>
+    
+    <NewForm onFormChange={handleUpdateFromForms} events={events}/>
+    <Container fixed>
+        <br/>
+        <Button variant="outlined" startIcon={<AddIcon />} fullWidth>Add another ticket</Button>
+        <br/><br/>
+        <Button variant="contained" fullWidth onClick={pasToPrintPage}>Generate</Button>
+    </Container>
+     {/* <form className={styles.form} onSubmit={handleSubmit}>
 
             <label htmlFor="eventName" className={styles.label}>
                 Event Name:
@@ -204,7 +240,7 @@ export default function NewSubmission(props: any) {
             <button type="reset" className={styles.button} onClick={resetForm}>
                 Reset
             </button>
-        </form>
+        </form> */}
     </>
   );
 }

@@ -48,6 +48,7 @@ h4 {
   position: relative;
   width: 100%;
   display: inline-block;
+  margin-bottom: 30px;
 }
 .header-left{
   float: left;
@@ -62,6 +63,8 @@ h4 {
   float: left;
   width: 70%;
   padding: 10px;
+  background: rgba(226, 241, 255, 0.20);
+  height: 47vh;
 }
 
 .body-left > .body-thumbsec > img{

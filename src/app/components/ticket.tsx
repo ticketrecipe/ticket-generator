@@ -39,15 +39,15 @@ export default function Ticket(props: any) {
                     body: JSON.stringify({
                         "requestId": "64670583-ceb1-4b7f-bc12-0ce6e8be967b",
                         "purchaser": {
-                            "name": props.data.pname,
+                            "name": props.data.patronName,
                             "emailAddress": "test@gmail.com"
                         },
                         "eventId": props.data.eventID,
                         "eventName": props.data.eventName,
                         "startDateTime": "2025-09-18T20:00:00",
                         "venue": {
-                            "name": "Madison Square Garden",
-                            "address": "7th Ave & 32nd Street"
+                            "name": props.data.eventVenue,
+                            "address": props.data.eventAddress
                         },
                         "tickets": [
                             {
@@ -60,7 +60,7 @@ export default function Ticket(props: any) {
                                 "category": props.data.cat,
                                 "row": props.data.row,
                                 "seat": props.data.seats,
-                                "section": props.data.sec,
+                                "section": props.data.section,
                                 "type": props.data.type
 
                             }
@@ -90,18 +90,18 @@ export default function Ticket(props: any) {
      <button onClick={onresetbtn} className={'resetbtn'}>RESET</button>
       <div ref={contentRef} className={'ticketrecipe-body'}>
         <div className={'header'}>
-                <div className={'header-left'}><img src={'./tm.png'}/></div>
+                <div className={'header-left'}><img src={'./tp.png'}/></div>
                 <div className={'header-right'}>Booking: {newData.bid}</div>
         </div>
         <div className={'body'}>
             <div className="row">
                 <div className={'body-left'}>
                     <div className={'body-thumbsec'}>
-                            <img src={'./ticket-img.png'}/>
+                            <img src={props.data.bannerImageUrl} width={100}/>
                             <span className={'body-thumbsec-right'}>
                                 <h4>{newData.eventName}</h4>
                                 <div className={'cal'}><img src={'./calendar.png'}/><p>Nov 11 at 17:10 SGT </p></div>
-                                <div className={'loc'}><img src={'./locate.png'}/><p>Singapore National Stadium</p></div>
+                                <div className={'loc'}><img src={'./locate.png'}/><p>{props.data.eventVenue}</p></div>
                                 
                             </span>
                             
