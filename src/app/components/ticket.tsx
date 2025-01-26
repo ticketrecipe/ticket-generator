@@ -116,7 +116,7 @@ export default function Ticket(props: any) {
                         </Grid>
                         <Grid size={4}>
                             <div className={'tbl-cell'}>
-                                <div className={'tbl-label'}>Original Price</div>
+                                <div className={'tbl-label'}>Ticket Price</div>
                                 <div className={'tbl-val'}>{newData.currency + " " + newData.price}</div>
                             </div>
                         </Grid>
